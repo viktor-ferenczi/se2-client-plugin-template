@@ -16,8 +16,12 @@
       <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <AssemblyName>ClientPluginTemplate</AssemblyName>
+    </PropertyGroup>
+
     <Target Name="DeployPlugin" AfterTargets="Build">
-        <Copy SourceFiles="$(OutDir)/ClientPlugin.dll" DestinationFiles="$(LocalDeploymentDir)/ClientPlugin.dll" Retries="0" />
+        <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(LocalDeploymentDir)" Retries="0" />
     </Target>
     
     <ItemGroup>
