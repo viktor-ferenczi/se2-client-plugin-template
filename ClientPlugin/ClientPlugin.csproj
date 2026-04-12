@@ -17,11 +17,12 @@
     </PropertyGroup>
 
     <Target Name="DeployPlugin" AfterTargets="Build">
-        <Copy SourceFiles="$(OutDir)/ClientPlugin.dll" DestinationFiles="$(LocalDeploymentDir)/ClientPlugin.dll" />
+        <Copy SourceFiles="$(OutDir)/ClientPlugin.dll" DestinationFiles="$(LocalDeploymentDir)/ClientPlugin.dll" Retries="0" />
     </Target>
     
     <ItemGroup>
       <PackageReference Include="Lib.Harmony" Version="2.4.2" />
+      <PackageReference Include="Mono.Cecil" Version="0.11.6" />
       <!-- Uncomment to enable publicizer support
       <PackageReference Include="Krafs.Publicizer" Version="2.3.0">
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
