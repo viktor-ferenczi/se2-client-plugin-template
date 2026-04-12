@@ -184,9 +184,9 @@ def _update_props(
     assert group is not None
 
     if game_dir:
-        bin64 = group.find("Bin64")
-        assert bin64 is not None
-        bin64.text = f"{game_dir}\\Bin64"
+        game2 = group.find("Game2")
+        assert game2 is not None
+        game2.text = f"{game_dir}\\Game2"
 
     tree.write("Directory.Build.props")
 
@@ -202,16 +202,16 @@ def main() -> None:
         else:
             print("Skipping project rename")
 
-    if _input_question("Auto-detect the install location of Space Engineers? (Y/N) [Y]: ", True):
+    if _input_question("Auto-detect the install location of Space Engineers 2? (Y/N) [Y]: ", True):
         vdf_path = f"{_get_steam_path()}\\steamapps\\libraryfolders.vdf"
-        locations = _get_install_locations(vdf_path, [APPID])
+        locations = _get_install_locations(vdf_path, [SE2_APPID])
 
-        if locations[APPID] is not None:
-            print(f"Found Space Engineers Under {locations[APPID]}")
+        if locations[SE2_APPID] is not None:
+            print(f"Found Space Engineers 2 Under {locations[SE2_APPID]}")
         else:
-            print("Could not find Space Engineers install location.")
+            print("Could not find Space Engineers 2 install location.")
 
-        _update_props(locations[APPID])
+        _update_props(locations[SE2_APPID])
     else:
         print("Please add the paths manually to 'Directory.Build.props'")
 
