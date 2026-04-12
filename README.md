@@ -5,7 +5,7 @@
 - [Space Engineers 2](https://store.steampowered.com/app/1133870/Space_Engineers_2/)
 - [Python 3.12](https://python.org) (requires 3.12 or newer)
 - [Pulsar](https://github.com/SpaceGT/Pulsar)
-- [.NET 10 SDK](https://dotnet.microsoft.com/en-us/)
+- [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download)
 
 ## Create your plugin project
 
@@ -17,7 +17,10 @@
 6. Make a test build, the plugin's DLL should be deployed (see the build log for the path)
 7. Test that the empty plugin can be enabled in Pulsar (use the `Modern` executable of Pulsar to run SE2)
 8. Replace the contents of this file with the description of your plugin
-9. Follow the TODO comments in the source code and implement your plugin
+9. Follow the `TODO` comments in the source file and implement your plugin
+
+If you have installed Pulsar to a non-default location (not `%AppData%\Pulsar`),
+then edit the `Pulsar` entry in `Directory.Build.props` accordingly.
 
 In case of questions please feel free to ask the SE2 plugin developer community on the
 [Pulsar](https://discord.gg/z8ZczP2YZY) Discord server via their relevant text channels. 
@@ -26,15 +29,6 @@ They also have dedicated channels for plugin ideas, should you look for a new on
 _Good luck!_
 
 ## Remarks
-
-### Plugin configuration
-
-You can have a nice configuration dialog with little effort in the game client.
-Customize the `Config` class in the `ClientPlugin` project, just follow the examples.
-It supports many different data types, including key binding. Once you have more
-options than can fit on the screen the dialog will have a vertical scrollbar.
-
-![Example config dialog](Docs/ConfigDialogExample.png "Example config dialog")
 
 ### Debugging
 
@@ -86,10 +80,11 @@ Please consider using [se2-dev-skills](https://github.com/viktor-ferenczi/se2-de
 
 - In your documentation always include how players should report bugs.
 - Try to be reachable and respond on a timely manner over your communication channels.
-- Be open for constructive critics.
+- Be open for constructive criticism.
 
 ### Abandoning your project
 
 - Always consider finding a new maintainer, ask around at least once.
-- If you ever abandon the project, then make it clear on its GitHub page. You may want to archive the repository.
+- If you ever abandon the project, then make it clear on its GitHub page.
+- You may want to archive the repository.
 - Keep the code available on GitHub, so it can be forked and continued by other developers.
