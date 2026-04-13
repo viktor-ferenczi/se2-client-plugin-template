@@ -24,6 +24,12 @@ public static class Preloader
     // ReSharper disable once UnusedMember.Global
     public static void Patch(AssemblyDefinition asmDef)
     {
+        /* !!! WARNING !!!
+        Currently, the preloader patches do not work with SE2. That's because the Mono.Cecil library used
+        is not compatible with the "ReadyToRun" (aka R2R) mode .NET assemblies the game is built with.
+        We plan to fix this by replacing Mono.Cecil with a different library.
+        */
+
         // TODO: Call you preloader patches 
         ExamplePrepatch.Prepatch(asmDef);
     }
@@ -31,7 +37,7 @@ public static class Preloader
     // ReSharper disable once UnusedMember.Global
     public static void Finish()
     {
-        // Called after completing all preloader patching and before Space Engineers 2 starts.
+        // Called after applying all the preloader patches and before Space Engineers 2 starts.
         // The plugin is loaded only as part of the game's initializations, so that comes later.
     }
 }

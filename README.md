@@ -12,7 +12,7 @@
 1. Click on **Use this template** (top right corner on GitHub) and follow the wizard to create your repository
 2. Clone your repository to have a local working copy
 3. Run `setup.py`, enter the name of your plugin project in `CapitalizedWords` format
-4. Let `setup.py` auto-detect your install location or fill it in manually
+4. Let `setup.py` auto-detect your installation location or fill it in manually
 5. Open the solution in Visual Studio or Rider
 6. Make a test build, the plugin's DLL should be deployed (see the build log for the path)
 7. Test that the empty plugin can be enabled in Pulsar (use the `Modern` executable of Pulsar to run SE2)
@@ -22,7 +22,7 @@
 If you have installed Pulsar to a non-default location (not `%AppData%\Pulsar`),
 then edit the `Pulsar` entry in `Directory.Build.props` accordingly.
 
-In case of questions please feel free to ask the SE2 plugin developer community on the
+In case of questions, please feel free to ask the SE2 plugin developer community on the
 [Pulsar](https://discord.gg/z8ZczP2YZY) Discord server via their relevant text channels. 
 They also have dedicated channels for plugin ideas, should you look for a new one.
 
@@ -30,15 +30,19 @@ _Good luck!_
 
 ## Remarks
 
+### Preloader patches
+
+Currently, the preloader patches do not work with SE2. That's because the Mono.Cecil library used
+is not compatible with the "ReadyToRun" (aka R2R) mode .NET assemblies the game is built with.
+We plan to fix this by replacing Mono.Cecil with a different library.
+
 ### Debugging
 
 - Always use a debug build if you want to set breakpoints and see variable values.
 - A debug build defines `DEBUG`, so you can add conditional code in `#if DEBUG` blocks.
-- While debugging a specific target unload the other two. It prevents the IDE to be confused.
 - If breakpoints do not "stick" or do not work, then make sure that:
-  - Other projects are unloaded, only the debugged one and Shared are loaded.
-  - Debugger is attached to the running process.
-  - You are debugging the code which is running (no code changes made since the build).
+  - The debugger is attached to the running process.
+  - You are debugging the code which is running.
 
 ### How to use a development folder to build the sources by Pulsar
 
@@ -47,17 +51,17 @@ _Good luck!_
 - Make sure to fill in the PluginHub registration XML (`ClientPluginTemplate.xml` in this repo) and load that as well.
 - Select `Debug` mode and run `Modern.exe`, then attach the debugger. That should allow debugging your plugin.
 - Select `Release` mode to test exactly how Pulsar will build and run your plugin on the player's machine.
-- The registered development folder shows up as a plugin you can select in the plugin list and saves into a profile.
+- The registered development folder shows up as a plugin you can select in the plugin list and save into a profile.
 
 ### Accessing internal, protected and private members in game code
 
-Enable the Krafs publicizer to significantly reduce the amount of reflections you need to write.
+Enable the Krafs publicizer to significantly reduce the number of reflections you need to write.
 
 This can be done by systematically uncommenting the code sections marked with "Uncomment to enable publicizer support".
 Make sure not to miss any of those. List the game assemblies you need to publicize in `GameAssembliesToPublicize.cs`.
-In case of problems read about the [Krafs Publicizer](https://github.com/krafs/Publicizer) or reach out on the [Pulsar](https://discord.gg/z8ZczP2YZY) Discord server.
+In case of problems, read about the [Krafs Publicizer](https://github.com/krafs/Publicizer) or reach out on the [Pulsar](https://discord.gg/z8ZczP2YZY) Discord server.
 
-### AI assisted plugin development
+### AI-assisted plugin development
 
 There is an [AGENTS.md](AGENTS.md) file in this repository. Make sure your coding agent reads this file before working on the code.
 
@@ -73,13 +77,13 @@ Please consider using [se2-dev-skills](https://github.com/viktor-ferenczi/se2-de
 
 - Always test your RELEASE build before publishing. Sometimes it behaves differently.
 - Always make your final release from a RELEASE build. (More optimized, removes debug code.)
-- In case of client plugins Pulsar compiles your code on the player's machine, so no need for a binary release.
+- In the case of client plugins, Pulsar compiles your code on the player's machine, so no need for a binary release.
 - You should deliver any additional files as assets (see Assets folder) and instead of downloading them directly.
 
 ### Communication
 
 - In your documentation always include how players should report bugs.
-- Try to be reachable and respond on a timely manner over your communication channels.
+- Try to be reachable and respond in a timely manner over your communication channels.
 - Be open for constructive criticism.
 
 ### Abandoning your project
