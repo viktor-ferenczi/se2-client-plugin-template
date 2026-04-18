@@ -1,11 +1,5 @@
 #if DISABLED_PRELOADER_EXAMPLE
 
-/* !!! WARNING !!!
-Currently, the preloader patches do not work with SE2. That's because the Mono.Cecil library used
-is not compatible with the "ReadyToRun" (aka R2R) mode .NET assemblies the game is built with.
-We plan to fix this by replacing Mono.Cecil with a different library.
-*/
-
 using ClientPlugin.Tools;
 using Mono.Cecil;
 

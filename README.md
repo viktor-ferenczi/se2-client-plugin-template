@@ -30,12 +30,6 @@ _Good luck!_
 
 ## Remarks
 
-### Preloader patches
-
-Currently, the preloader patches do not work with SE2. That's because the Mono.Cecil library used
-is not compatible with the "ReadyToRun" (aka R2R) mode .NET assemblies the game is built with.
-We plan to fix this by replacing Mono.Cecil with a different library.
-
 ### Debugging
 
 - Always use a debug build if you want to set breakpoints and see variable values.
@@ -60,6 +54,28 @@ Enable the Krafs publicizer to significantly reduce the number of reflections yo
 This can be done by systematically uncommenting the code sections marked with "Uncomment to enable publicizer support".
 Make sure not to miss any of those. List the game assemblies you need to publicize in `GameAssembliesToPublicize.cs`.
 In case of problems, read about the [Krafs Publicizer](https://github.com/krafs/Publicizer) or reach out on the [Pulsar](https://discord.gg/z8ZczP2YZY) Discord server.
+
+### Preloader patching
+
+Preloader patching is a "last resort" solution which changes the IL code before the game assemblies are even loaded.
+Use preloader patching only if none of the other methods work. For example, if you have to change type or method
+signatures in the game assemblies or have to change code before static constructors run.
+
+If any plugin selected in Pulsar is using any preloader patches, then the loading of the game is slower.
+If a game assembly has one patch, then having more patches to the same assembly is nearly free.
+
+Uncomment the code in `ExamplePrepatch.cs`, read the comments there and understand how it works.
+
+#### Limitations
+
+It is relatively hard to write a preloader patch correctly, since all changes have to be done in IL code without 
+importing any of the game assemblies. You cannot directly reference game assemblies from preloader patches, but
+can write IL code referencing them once the assembly will be loaded. The `Finish` method is safe to refer game
+assemblies, because that runs after all the preloader patches.
+
+The Mono.Cecil library cannot write "mixed mode" assemblies used by the game for ReadyToRun (R2R) support.
+It has been worked around in Pulsar by clearing the R2R precompiled code from the assemblies if preloader
+patching is used. In the future the Mono.Cecil may be replaced with a different library as a proper solution.
 
 ### AI-assisted plugin development
 
