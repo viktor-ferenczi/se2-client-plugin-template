@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using System;
+using HarmonyLib;
 using Keen.Game2.Game.Plugins;
 using Keen.VRage.Library.Diagnostics;
 using System.Reflection;
@@ -13,7 +14,9 @@ public class Plugin : IPlugin
     // The data directory will be provided by a proper SDK in the future.
     // This static function is currently injected by Pulsar, which will
     // remain compatible, even after the SDK's release.
+#pragma warning disable CS0649 // This field is assigned by Pulsar
     private static Func<string, string, string> GetConfigPath;
+#pragma warning restore CS0649
     public string DataDir { get; private set; } = GetConfigPath(Name, null);
 
     public Config Config;

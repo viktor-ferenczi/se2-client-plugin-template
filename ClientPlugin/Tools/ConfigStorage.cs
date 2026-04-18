@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using System.Xml.Serialization;
 using Keen.VRage.Library.Diagnostics;
 
