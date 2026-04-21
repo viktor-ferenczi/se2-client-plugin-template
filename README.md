@@ -47,6 +47,15 @@ _Good luck!_
 - Select `Release` mode to test exactly how Pulsar will build and run your plugin on the player's machine.
 - The registered development folder shows up as a plugin you can select in the plugin list and save into a profile.
 
+### Settings UI
+
+The template ships with an attribute-driven Settings UI generator — mark the
+properties on `Config` with the built-in attributes (`[Checkbox]`, `[Slider]`,
+`[Textbox]`, `[Dropdown]`, `[Color]`, `[Keybind]`, `[Button]`, `[Separator]`)
+and the settings dialog is rendered automatically. See
+[ClientPlugin/Settings/Settings.md](ClientPlugin/Settings/Settings.md) for the
+full reference.
+
 ### Accessing internal, protected and private members in game code
 
 Enable the Krafs publicizer to significantly reduce the number of reflections you need to write.

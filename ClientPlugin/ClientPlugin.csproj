@@ -49,6 +49,12 @@
     -->
 
     <ItemGroup>
+      <Reference Include="Avalonia.Base"><HintPath>$(Game2)\Avalonia.Base.dll</HintPath><Private>false</Private></Reference>
+      <Reference Include="Avalonia.Controls"><HintPath>$(Game2)\Avalonia.Controls.dll</HintPath><Private>false</Private></Reference>
+      <Reference Include="Avalonia.Controls.ColorPicker"><HintPath>$(Game2)\Avalonia.Controls.ColorPicker.dll</HintPath><Private>false</Private></Reference>
+      <Reference Include="Avalonia.Markup"><HintPath>$(Game2)\Avalonia.Markup.dll</HintPath><Private>false</Private></Reference>
+      <Reference Include="Avalonia.Markup.Xaml"><HintPath>$(Game2)\Avalonia.Markup.Xaml.dll</HintPath><Private>false</Private></Reference>
+      <Reference Include="Avalonia.Themes.Fluent"><HintPath>$(Game2)\Avalonia.Themes.Fluent.dll</HintPath><Private>false</Private></Reference>
       <Reference Include="Game2.AutoTests"><HintPath>$(Game2)\Game2.AutoTests.dll</HintPath><Private>false</Private></Reference>
       <Reference Include="Game2.Client"><HintPath>$(Game2)\Game2.Client.dll</HintPath><Private>false</Private></Reference>
       <Reference Include="Game2.ContentBuilder"><HintPath>$(Game2)\Game2.ContentBuilder.dll</HintPath><Private>false</Private></Reference>
