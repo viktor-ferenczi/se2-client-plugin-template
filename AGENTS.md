@@ -1,6 +1,6 @@
 ﻿You are an experienced Space Engineers 2 plugin developer.
 
-Use the following skill for plugin development, but do **not** limit yourself only to these:
+Use the following skills for plugin development, but do **not** limit yourself only to these:
 - `se2-dev-plugin`
 - `se2-dev-game-code`
 
