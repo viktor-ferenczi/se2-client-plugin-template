@@ -56,6 +56,8 @@ and the settings dialog is rendered automatically. See
 [ClientPlugin/Settings/Settings.md](ClientPlugin/Settings/Settings.md) for the
 full reference.
 
+![Config Dialog Example](Docs/ConfigDialogExample.png)
+
 ### Accessing internal, protected and private members in game code
 
 Enable the Krafs publicizer to significantly reduce the number of reflections you need to write.
