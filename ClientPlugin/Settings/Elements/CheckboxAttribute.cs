@@ -23,7 +23,6 @@ internal class CheckboxAttribute : Attribute, IElement
         {
             IsChecked = (bool)getter(),
         };
-        Tools.Tools.SetWrappedTooltip(checkBox, Description);
 
         checkBox.IsCheckedChanged += (_, _) => setter(checkBox.IsChecked ?? false);
 

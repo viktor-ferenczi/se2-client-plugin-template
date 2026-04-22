@@ -37,7 +37,6 @@ internal class DropdownAttribute : Attribute, IElement
             Height = SettingsLayout.ControlHeight,
             [TextElement.FontSizeProperty] = 18d,
         };
-        Tools.Tools.SetWrappedTooltip(comboBox, Description);
 
         for (var i = 0; i < names.Length; i++)
             comboBox.Items.Add(new ComboBoxItem

@@ -29,7 +29,6 @@ internal static class RowBuilder
             VerticalAlignment = VerticalAlignment.Center,
             Margin = new Thickness(0, 0, 8, 0),
         };
-        Tools.Tools.SetWrappedTooltip(label, tooltip);
 
         Grid.SetColumn(label, 0);
         grid.Children.Add(label);
@@ -45,6 +44,8 @@ internal static class RowBuilder
 
         Grid.SetColumn(valuePanel, 1);
         grid.Children.Add(valuePanel);
+
+        Tools.Tools.SetWrappedTooltip(grid, tooltip);
 
         return grid;
     }

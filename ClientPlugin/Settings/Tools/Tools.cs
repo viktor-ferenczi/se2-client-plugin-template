@@ -14,7 +14,8 @@ public static class Tools
     private static readonly Regex RxHexDigits = new Regex("^[0-9a-f]+$", RegexOptions.IgnoreCase);
 
     // Avalonia's Fluent ToolTip trims text after a default MaxWidth, so wrap the description
-    // in a TextBlock that wraps and sets a generous MaxWidth.
+    // in a TextBlock that wraps and sets a generous MaxWidth. FontSize is set explicitly so
+    // the popup doesn't inherit a smaller size from the control it's attached to.
     public static void SetWrappedTooltip(Control control, string text)
     {
         if (string.IsNullOrEmpty(text)) return;
@@ -23,6 +24,7 @@ public static class Tools
             Text = text,
             TextWrapping = TextWrapping.Wrap,
             MaxWidth = 500,
+            FontSize = 20,
         });
     }
 

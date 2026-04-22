@@ -24,7 +24,6 @@ internal class TextboxAttribute : Attribute, IElement
             Width = 280,
             Height = SettingsLayout.ControlHeight,
         };
-        Tools.Tools.SetWrappedTooltip(textBox, Description);
 
         textBox.TextChanged += (_, _) => setter(textBox.Text);
 

@@ -34,9 +34,6 @@ internal class KeybindAttribute : Attribute, IElement
             MinWidth = 220,
             Height = SettingsLayout.ControlHeight,
         };
-        Tools.Tools.SetWrappedTooltip(button,
-            (string.IsNullOrEmpty(Description) ? "" : Description + "\n") +
-            "Click to bind a key (press Esc to cancel). Right-click to clear.");
 
         button.Click += (_, _) => OpenCompositionDialog(label, getter, setter, button);
 
@@ -48,7 +45,9 @@ internal class KeybindAttribute : Attribute, IElement
             e.Handled = true;
         };
 
-        return RowBuilder.NewRow(label, Description, button);
+        var tooltip = (string.IsNullOrEmpty(Description) ? "" : Description + "\n") +
+                      "Click to bind a key (press Esc to cancel). Right-click to clear.";
+        return RowBuilder.NewRow(label, tooltip, button);
     }
 
     private void OpenCompositionDialog(string label, Func<object> getter, Action<object> setter, Button button)

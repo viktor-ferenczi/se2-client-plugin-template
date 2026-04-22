@@ -52,8 +52,6 @@ internal class SliderAttribute : Attribute, IElement
                 setter((float)slider.Value);
         };
 
-        Tools.Tools.SetWrappedTooltip(slider, Description);
-
         return RowBuilder.NewRow(Tools.Tools.GetLabelOrDefault(name, Label), Description, slider);
     }
 

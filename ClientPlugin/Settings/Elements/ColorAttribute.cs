@@ -47,7 +47,6 @@ internal class ColorAttribute : Attribute, IElement
             Width = HasAlpha ? 170 : 140,
             Height = SettingsLayout.ControlHeight,
         };
-        Tools.Tools.SetWrappedTooltip(textBox, Description);
 
         var originalBorderBrush = textBox.BorderBrush;
         var updating = false;
@@ -182,7 +181,6 @@ internal class ColorAttribute : Attribute, IElement
             Content = previewBorder,
             Flyout = new Flyout { Content = pickerPanel },
         };
-        Tools.Tools.SetWrappedTooltip(previewButton, Description);
 
         return RowBuilder.NewRow(Tools.Tools.GetLabelOrDefault(name, Label), Description, previewButton, textBox);
     }

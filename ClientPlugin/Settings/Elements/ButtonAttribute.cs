@@ -26,7 +26,6 @@ internal class ButtonAttribute : Attribute, IElement
             Padding = new Thickness(12, 4, 12, 4),
             Height = SettingsLayout.ControlHeight,
         };
-        Tools.Tools.SetWrappedTooltip(button, Description);
 
         button.Click += (_, _) => ((Action)getter())();
 
